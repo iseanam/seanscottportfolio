@@ -2,78 +2,193 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sean Sannino | Portfolio</title>
-  <meta name="description" content="Portfolio of Sean Sannino, Digital Society student at Maastricht University."/>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sean Scott Sannino | Portfolio</title>
+  <meta name="description" content="Portfolio of Sean Scott Sannino, a Digital Society student at Maastricht University interested in technology, culture, sport, and thoughtful living." />
+  <meta name="theme-color" content="#f4efe7" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div class="noise"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
 
-  <header class="hero">
-    <nav>
-      <h1>Sean Sannino</h1>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#interests">Interests</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+  <header class="site-header">
+    <a class="brand" href="#top">SSS</a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#experience">Profile</a>
+      <a href="#interests">Interests</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
-
-    <div class="hero-content">
-      <h2>Digital Society Student</h2>
-      <p>Curious about technology, people, and how the digital world shapes our lives.</p>
-    </div>
   </header>
 
-  <main>
+  <main id="top">
+    <section class="hero section reveal">
+      <p class="eyebrow">Maastricht University · BA Digital Society · Year 1</p>
+      <div class="hero-grid">
+        <div>
+          <h1>Sean Scott Sannino</h1>
+          <p class="hero-copy">
+            I am a Digital Society student with a calm, curious way of looking at the world — interested in technology, people, movement, culture, and meaningful experiences.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-dark" href="#contact">Get in touch</a>
+            <a class="button button-light" href="#projects">View portfolio</a>
+          </div>
+        </div>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I’m a first-year Digital Society student at Maastricht University, interested in how technology shapes the way we live, think, and connect.
-      </p>
-
-      <p>
-        I enjoy learning new things, whether that’s exploring digital systems, flying drones, or improving in sports like tennis, badminton, and climbing.
-      </p>
-
-      <p>
-        I like keeping life relaxed and meaningful. I don’t smoke or drink — I prefer staying healthy and present. For me, fun isn’t about excess, but about good experiences and good people.
-      </p>
-
-      <p>
-        I also enjoy planning things with my girlfriend Carla, who inspires my creative side.
-      </p>
+        <aside class="hero-card float-card">
+          <div class="hero-card-top">
+            <span>Based in Maastricht</span>
+            <span>Age 20</span>
+          </div>
+          <ul>
+            <li>Digital culture & technology</li>
+            <li>Drone licensed</li>
+            <li>Tennis, badminton, climbing</li>
+            <li>Gaming & movie nights</li>
+            <li>Healthy, grounded lifestyle</li>
+          </ul>
+        </aside>
+      </div>
+      <div class="scroll-note">Scroll to explore</div>
     </section>
 
-    <section id="interests">
-      <h2>Interests</h2>
-
-      <div class="grid">
-        <div class="card">🎮 Gaming</div>
-        <div class="card">🚁 Drone Flying (Licensed)</div>
-        <div class="card">🎾 Tennis & Badminton</div>
-        <div class="card">🧗 Climbing & Bouldering</div>
-        <div class="card">🧠 Learning & Knowledge</div>
-        <div class="card">🎬 Movie Nights</div>
+    <section id="about" class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">About</p>
+        <h2>Thoughtful, active, and digitally curious.</h2>
+      </div>
+      <div class="content-grid">
+        <p>
+          I study Digital Society at FASoS, Maastricht University, where I am especially interested in how digital systems shape the way people live, interact, communicate, and understand the world around them.
+        </p>
+        <p>
+          Outside university, I like learning for the sake of learning. Whether I am reading into a new topic, flying a drone, improving at sport, or just noticing patterns in everyday life, I enjoy becoming more knowledgeable and more aware.
+        </p>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: seansannino@gmail.com</p>
+    <section id="experience" class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Official profile</p>
+        <h2>A quick overview.</h2>
+      </div>
+      <div class="stats-grid">
+        <article class="stat-card lift">
+          <span class="stat-label">Study</span>
+          <h3>BA Digital Society</h3>
+          <p>Faculty of Arts and Social Sciences, Maastricht University.</p>
+        </article>
+        <article class="stat-card lift">
+          <span class="stat-label">Focus</span>
+          <h3>Technology & culture</h3>
+          <p>Interested in digital life, online spaces, social behaviour, and emerging tech.</p>
+        </article>
+        <article class="stat-card lift">
+          <span class="stat-label">Lifestyle</span>
+          <h3>Balanced & health-focused</h3>
+          <p>I value movement, clarity, and a relaxed life without smoking or drinking.</p>
+        </article>
+        <article class="stat-card lift">
+          <span class="stat-label">Extra</span>
+          <h3>Drone licensed</h3>
+          <p>Comfortable with responsibility, regulation, and practical technical skills.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="interests" class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Interests</p>
+        <h2>Things that shape my energy.</h2>
+      </div>
+      <div class="interest-grid">
+        <article class="interest-card accent-peach lift">
+          <span class="interest-number">01</span>
+          <h3>Gaming</h3>
+          <p>I enjoy games as experiences, systems, stories, and spaces for curiosity.</p>
+        </article>
+        <article class="interest-card accent-blue lift">
+          <span class="interest-number">02</span>
+          <h3>Sports</h3>
+          <p>Tennis, badminton, rock climbing, and bouldering keep me focused and grounded.</p>
+        </article>
+        <article class="interest-card accent-lime lift">
+          <span class="interest-number">03</span>
+          <h3>Drone flying</h3>
+          <p>A mix of technical precision, calm concentration, and a different visual perspective.</p>
+        </article>
+        <article class="interest-card accent-rose lift">
+          <span class="interest-number">04</span>
+          <h3>Simple moments</h3>
+          <p>Movie nights, relaxed plans, and quality time with the people I care about most.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Portfolio</p>
+        <h2>Current and future work.</h2>
+      </div>
+      <div class="project-list">
+        <article class="project-card lift">
+          <div>
+            <p class="project-type">Featured project</p>
+            <h3>Personal Portfolio Website</h3>
+          </div>
+          <p>
+            A minimalist personal website designed to introduce who I am, what I study, and what I care about — built as a clean starting point for future academic, creative, and digital projects.
+          </p>
+          <div class="project-links">
+            <a href="https://iseanam.github.io/seanscottportfolio/" target="_blank" rel="noreferrer">Live site</a>
+            <a href="https://github.com/iseanam/seanscottportfolio" target="_blank" rel="noreferrer">GitHub repo</a>
+          </div>
+        </article>
+
+        <article class="project-card muted-card lift">
+          <div>
+            <p class="project-type">Coming next</p>
+            <h3>University & personal work</h3>
+          </div>
+          <p>
+            This section is ready for essays, media experiments, digital society projects, research reflections, or anything else I build over time.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-band reveal">
       <p>
-        <a href="#">LinkedIn</a> |
-        <a href="#">GitHub</a>
+        “Knowledge, balance, and curiosity”
       </p>
     </section>
 
+    <section id="contact" class="section reveal">
+      <div class="section-head">
+        <p class="eyebrow">Contact</p>
+        <h2>Let’s connect.</h2>
+      </div>
+      <div class="contact-card lift">
+        <p>
+          This portfolio is a living space that will continue to grow with my studies, ideas, and projects.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:your.email@example.com">your.email@example.com</a>
+          <a href="https://github.com/iseanam" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-    <p>© 2026 Sean Sannino</p>
-  </footer>
-
+  <script src="script.js"></script>
 </body>
 </html>
