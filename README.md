@@ -1,14 +1,19 @@
-# Sean Portfolio V3
+# Sean Portfolio Frontend
 
-This version adds:
+This is the updated minimalist + colorful portfolio frontend.
 
-- Pinterest-like editorial/minimal layout
-- Apple-style motion touches
-- Carla's Gallery section
-- Owner Mode image uploader
+## What changed
+- cleaner Pinterest-like spacing
+- more minimal cards
+- more colorful soft ambient shapes
+- abstract swirly line art in the background
+- fixed layout so cards do not overlap
+- connected gallery section for a real backend
 
-## Important limitation
+## Before you deploy
+1. Replace the email in `index.html`
+2. Replace the LinkedIn link in `index.html`
+3. Set `API_BASE` in `script.js` to your real backend URL
 
-The gallery uploader uses browser localStorage.
-
-
+## GitHub Pages
+Upload these files to your GitHub Pages repository.

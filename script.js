@@ -1,9 +1,4 @@
-
 const revealElements = document.querySelectorAll('.reveal');
-const tiltCards = document.querySelectorAll('.tilt-card, .floating-card');
-const navToggle = document.querySelector('.nav-toggle');
-const siteNav = document.querySelector('.site-nav');
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -12,76 +7,37 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, { threshold: 0.14 });
-
 revealElements.forEach((el) => observer.observe(el));
 
+const navToggle = document.getElementById('navToggle');
+const siteNav = document.getElementById('siteNav');
 if (navToggle && siteNav) {
-  navToggle.addEventListener('click', () => {
-    siteNav.classList.toggle('open');
-  });
-
-  siteNav.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => siteNav.classList.remove('open'));
-  });
+  navToggle.addEventListener('click', () => siteNav.classList.toggle('open'));
+  siteNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => siteNav.classList.remove('open')));
 }
 
-tiltCards.forEach((card) => {
-  card.addEventListener('mousemove', (event) => {
-    if (window.innerWidth < 760) return;
-    const rect = card.getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const rotateY = ((x / rect.width) - 0.5) * 8;
-    const rotateX = ((y / rect.height) - 0.5) * -8;
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-  });
+const API_BASE = 'http://localhost:3000';
+const TOKEN_KEY = 'sean-gallery-admin-token';
 
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
-
-const ownerToggle = document.getElementById('ownerToggle');
-const ownerPanel = document.getElementById('ownerPanel');
-const addArtworkBtn = document.getElementById('addArtworkBtn');
-const clearGalleryBtn = document.getElementById('clearGalleryBtn');
-const imageInput = document.getElementById('imageInput');
-const titleInput = document.getElementById('titleInput');
-const descInput = document.getElementById('descInput');
 const galleryGrid = document.getElementById('galleryGrid');
+const ownerPanel = document.getElementById('ownerPanel');
+const loginToggle = document.getElementById('loginToggle');
+const logoutButton = document.getElementById('logoutButton');
+const authStatus = document.getElementById('authStatus');
+const loginForm = document.getElementById('loginForm');
+const uploadForm = document.getElementById('uploadForm');
+const passwordInput = document.getElementById('passwordInput');
+const titleInput = document.getElementById('titleInput');
+const descriptionInput = document.getElementById('descriptionInput');
+const imageInput = document.getElementById('imageInput');
 
-const STORAGE_KEY = 'sean-portfolio-gallery-v1';
-let ownerMode = false;
-
-const starterGallery = [
-  {
-    id: crypto.randomUUID(),
-    title: "Carla's first featured piece",
-    desc: "Replace this with a real drawing whenever you're ready.",
-    src: "https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=900&q=80"
-  },
-  {
-    id: crypto.randomUUID(),
-    title: "Sketchbook corner",
-    desc: "A soft placeholder card so the gallery feels complete from day one.",
-    src: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=900&q=80"
-  }
-];
-
-function readGallery() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return starterGallery;
-    const parsed = JSON.parse(raw);
-    return Array.isArray(parsed) && parsed.length ? parsed : starterGallery;
-  } catch (error) {
-    return starterGallery;
-  }
+function token() { return localStorage.getItem(TOKEN_KEY); }
+function setToken(value) {
+  if (value) localStorage.setItem(TOKEN_KEY, value);
+  else localStorage.removeItem(TOKEN_KEY);
+  syncAuthUI();
 }
-
-function saveGallery(items) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-}
+function isAuthed() { return !!token(); }
 
 function escapeHTML(value = '') {
   return value
@@ -92,75 +48,95 @@ function escapeHTML(value = '') {
     .replaceAll("'", '&#039;');
 }
 
-function renderGallery() {
-  const items = readGallery();
+function syncAuthUI() {
+  const authed = isAuthed();
+  authStatus.textContent = authed ? 'Owner mode active' : 'Public view';
+  logoutButton.classList.toggle('hidden', !authed);
+  loginForm.classList.toggle('hidden', authed);
+  uploadForm.classList.toggle('hidden', !authed);
+}
+
+async function fetchGallery() {
+  try {
+    const res = await fetch(`${API_BASE}/api/artworks`);
+    const items = await res.json();
+    renderGallery(items);
+  } catch (error) {
+    galleryGrid.innerHTML = `<article class="gallery-item"><div class="gallery-copy"><h3>Backend not connected yet</h3><p>Start your backend and set API_BASE in script.js to your real backend URL.</p></div></article>`;
+  }
+}
+
+function renderGallery(items) {
   galleryGrid.innerHTML = items.map((item) => `
-    <article class="gallery-item">
-      ${ownerMode ? `<button class="remove-btn" type="button" data-id="${item.id}">Remove</button>` : ''}
-      <img src="${item.src}" alt="${escapeHTML(item.title || 'Artwork image')}" loading="lazy" />
+    <article class="gallery-item reveal visible">
+      ${isAuthed() ? `<button class="remove-btn" data-id="${item.id}" type="button">Remove</button>` : ''}
+      <img src="${API_BASE}${item.imageUrl}" alt="${escapeHTML(item.title || 'Artwork')}" loading="lazy" />
       <div class="gallery-copy">
         <h3>${escapeHTML(item.title || 'Untitled')}</h3>
-        <p>${escapeHTML(item.desc || '')}</p>
+        <p>${escapeHTML(item.description || '')}</p>
       </div>
     </article>
   `).join('');
 
-  document.body.classList.toggle('owner-enabled', ownerMode);
-
-  if (ownerMode) {
+  if (isAuthed()) {
     document.querySelectorAll('.remove-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const items = readGallery().filter((item) => item.id !== btn.dataset.id);
-        saveGallery(items);
-        renderGallery();
+      btn.addEventListener('click', async () => {
+        const res = await fetch(`${API_BASE}/api/artworks/${btn.dataset.id}`, {
+          method: 'DELETE',
+          headers: { Authorization: `Bearer ${token()}` }
+        });
+        if (res.ok) fetchGallery();
+        else alert('Could not delete artwork.');
       });
     });
   }
 }
 
-if (ownerToggle) {
-  ownerToggle.addEventListener('click', () => {
-    ownerMode = !ownerMode;
-    ownerPanel.classList.toggle('hidden', !ownerMode);
-    ownerToggle.textContent = ownerMode ? 'Disable Owner Mode' : 'Enable Owner Mode';
-    renderGallery();
-  });
-}
+loginToggle.addEventListener('click', () => ownerPanel.classList.toggle('hidden'));
+logoutButton.addEventListener('click', () => setToken(''));
 
-if (addArtworkBtn) {
-  addArtworkBtn.addEventListener('click', () => {
-    const file = imageInput.files?.[0];
-    if (!file) {
-      alert('Choose an image first.');
-      return;
-    }
+loginForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  try {
+    const res = await fetch(`${API_BASE}/api/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: passwordInput.value })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Login failed');
+    setToken(data.token);
+    passwordInput.value = '';
+    fetchGallery();
+  } catch (error) {
+    alert(error.message || 'Login failed');
+  }
+});
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      const items = readGallery();
-      items.unshift({
-        id: crypto.randomUUID(),
-        title: titleInput.value.trim() || 'Untitled artwork',
-        desc: descInput.value.trim(),
-        src: reader.result
-      });
-      saveGallery(items);
-      imageInput.value = '';
-      titleInput.value = '';
-      descInput.value = '';
-      renderGallery();
-    };
-    reader.readAsDataURL(file);
-  });
-}
+uploadForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const file = imageInput.files?.[0];
+  if (!file) return alert('Please choose an image.');
 
-if (clearGalleryBtn) {
-  clearGalleryBtn.addEventListener('click', () => {
-    const ok = confirm('Clear all uploaded gallery items from this browser?');
-    if (!ok) return;
-    localStorage.removeItem(STORAGE_KEY);
-    renderGallery();
-  });
-}
+  const formData = new FormData();
+  formData.append('title', titleInput.value.trim());
+  formData.append('description', descriptionInput.value.trim());
+  formData.append('image', file);
 
-renderGallery();
+  try {
+    const res = await fetch(`${API_BASE}/api/artworks`, {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token()}` },
+      body: formData
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Upload failed');
+    uploadForm.reset();
+    fetchGallery();
+  } catch (error) {
+    alert(error.message || 'Upload failed');
+  }
+});
+
+syncAuthUI();
+fetchGallery();

@@ -4,219 +4,229 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sean Sannino | Portfolio</title>
-  <meta name="description" content="Sean Sannino — Digital Society student at Maastricht University with interests in technology, sport, culture, and creative living." />
-  <meta name="theme-color" content="#f7f2ea" />
+  <meta name="description" content="Sean Sannino — calm, curious, and digitally minded. Digital Society student at Maastricht University." />
+  <meta name="theme-color" content="#fbfaf7" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="page-noise" aria-hidden="true"></div>
-  <div class="bg-orb orb-1" aria-hidden="true"></div>
-  <div class="bg-orb orb-2" aria-hidden="true"></div>
-  <div class="bg-orb orb-3" aria-hidden="true"></div>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <div class="ambient ambient-c" aria-hidden="true"></div>
 
-  <header class="site-header glass">
+  <svg class="swirl swirl-one" viewBox="0 0 900 900" aria-hidden="true">
+    <path d="M90 593C224 798 553 803 726 613c126-138 100-372-75-467C502 64 286 160 251 322c-36 166 90 294 237 301 136 7 266-72 335-176"/>
+  </svg>
+  <svg class="swirl swirl-two" viewBox="0 0 900 900" aria-hidden="true">
+    <path d="M778 219C645 81 389 54 234 195 86 331 95 557 261 661c128 80 311 62 412-27 95-84 120-246 39-345-75-91-225-113-330-53"/>
+  </svg>
+
+  <header class="site-header">
     <a class="brand" href="#top">Sean Sannino</a>
-    <nav class="site-nav">
+    <nav class="site-nav" id="siteNav">
       <a href="#about">About</a>
       <a href="#profile">Profile</a>
       <a href="#highlights">Highlights</a>
-      <a href="#gallery">Carla's Gallery</a>
+      <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button class="nav-toggle" type="button" aria-label="Toggle menu">☰</button>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
   </header>
 
   <main id="top">
     <section class="hero section">
       <div class="hero-copy reveal">
-        <p class="eyebrow">Digital Society • Maastricht University</p>
+        <p class="eyebrow">Maastricht University · Digital Society · FASoS</p>
         <h1>
-          Calm, curious, and
-          <span class="serif">digitally minded.</span>
+          Calm, colorful,
+          <span class="accent serif">and digitally minded.</span>
         </h1>
         <p class="hero-text">
-          I'm Sean Scott Sannino, a first-year bachelor student in Digital Society at FASoS.
-          I like thoughtful design, healthy living, sports, gaming, drone flying, and meaningful experiences with the people I care about most.
+          I’m Sean Scott Sannino — a first-year bachelor student interested in technology, culture,
+          healthy living, movement, visual identity, and thoughtful experiences that actually feel meaningful.
         </p>
         <div class="hero-actions">
-          <a class="button button-dark" href="#contact">Get in touch</a>
-          <a class="button button-light" href="#gallery">See Carla's drawings</a>
+          <a class="button button-dark" href="#gallery">View Carla's drawings</a>
+          <a class="button button-light" href="#contact">Contact me</a>
         </div>
       </div>
 
-      <div class="hero-stack">
-        <article class="floating-card card-large reveal tilt-card">
-          <span class="card-label">Official profile</span>
+      <div class="hero-aside reveal delay-1">
+        <article class="hero-card hero-card-main floating">
+          <span class="chip">Official profile</span>
           <h2>Sean Sannino</h2>
-          <p>20 years old • Bachelor's student • Maastricht</p>
           <ul class="stat-list">
-            <li><strong>Study</strong><span>Digital Society, FASoS</span></li>
-            <li><strong>Sports</strong><span>Tennis, badminton, climbing</span></li>
-            <li><strong>Certified</strong><span>Drone license</span></li>
+            <li><span>Age</span><strong>20</strong></li>
+            <li><span>Study</span><strong>BA Digital Society</strong></li>
+            <li><span>Base</span><strong>Maastricht</strong></li>
+            <li><span>Certified</span><strong>Drone license</strong></li>
           </ul>
         </article>
 
-        <article class="floating-card card-small reveal delay-1">
-          <span class="mini-tag">Lifestyle</span>
-          <p>Relaxed, health-conscious, present.</p>
-        </article>
-
-        <article class="floating-card card-small reveal delay-2">
-          <span class="mini-tag">Interests</span>
-          <p>Games, film nights, ideas, visual culture.</p>
-        </article>
+        <div class="mini-card-row">
+          <article class="mini-card floating delay-float-a">
+            <span class="chip">Lifestyle</span>
+            <p>Relaxed, health-conscious, present.</p>
+          </article>
+          <article class="mini-card floating delay-float-b">
+            <span class="chip">Interests</span>
+            <p>Gaming, sport, film nights, ideas, aesthetics.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="about" class="section editorial-grid">
-      <div class="section-heading reveal">
+    <section id="about" class="section">
+      <div class="section-intro reveal">
         <p class="eyebrow">About</p>
-        <h2>Officially personal.</h2>
+        <h2>Personal, but still official.</h2>
       </div>
-
-      <div class="editorial-column reveal">
-        <p>
-          I’m interested in how digital systems influence daily life, behaviour, culture, and connection.
-          My studies at Maastricht University let me explore technology not only as a tool, but as something deeply social.
-        </p>
-        <p>
-          Outside university, I enjoy movement and focus: tennis, badminton, rock climbing, and bouldering.
-          I also hold a drone license, which reflects my interest in precision, perspective, and exploring the world from new angles.
-        </p>
-      </div>
-
-      <div class="editorial-column reveal delay-1">
-        <p>
-          I prefer a balanced lifestyle. I don’t smoke or drink, and I take my health seriously.
-          For me, fun is about being fully there: movie nights, good conversations, shared plans, and meaningful time with Carla.
-        </p>
-        <p>
-          I’m drawn to clean design, thoughtful experiences, and building a life that feels both grounded and creative.
-        </p>
+      <div class="split-grid">
+        <div class="copy-block reveal">
+          <p>
+            I study Digital Society at Maastricht University, where I’m especially interested in
+            how digital systems influence culture, behaviour, communication, and everyday life.
+          </p>
+          <p>
+            I like learning broadly and staying curious — from digital questions and media to sports,
+            drone flying, games, and the small details that make design feel human.
+          </p>
+        </div>
+        <div class="copy-block reveal delay-1">
+          <p>
+            Outside university, I enjoy tennis, badminton, rock climbing, and bouldering.
+            I take my health seriously, prefer a balanced lifestyle, and believe fun doesn’t need
+            to revolve around drinking or smoking.
+          </p>
+          <p>
+            I also love movie nights and making plans with my favourite person in the world:
+            my girlfriend Carla, whose drawings inspired the gallery on this site.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="profile" class="section">
-      <div class="section-heading reveal">
+    <section id="profile" class="section reveal">
+      <div class="section-intro">
         <p class="eyebrow">Profile</p>
-        <h2>Structured and official.</h2>
+        <h2>What defines me right now.</h2>
       </div>
-
       <div class="profile-grid">
-        <article class="profile-card glass reveal">
+        <article class="profile-card">
           <h3>Education</h3>
-          <p>First-year Bachelor of Digital Society at FASoS, Maastricht University.</p>
+          <p>First-year bachelor student in Digital Society at FASoS, Maastricht University.</p>
         </article>
-        <article class="profile-card glass reveal delay-1">
-          <h3>Focus</h3>
-          <p>Digital culture, technology, society, media, and the human side of innovation.</p>
+        <article class="profile-card">
+          <h3>Mindset</h3>
+          <p>Curious, calm, informed, and interested in both people and digital systems.</p>
         </article>
-        <article class="profile-card glass reveal delay-2">
-          <h3>Interests</h3>
-          <p>Gaming, films, sport, creative living, healthy habits, and staying knowledgeable.</p>
+        <article class="profile-card">
+          <h3>Movement</h3>
+          <p>Tennis, badminton, rock climbing, and bouldering keep me focused and grounded.</p>
         </article>
-        <article class="profile-card glass reveal delay-3">
-          <h3>Personal style</h3>
-          <p>Relaxed, reflective, minimal, and intentional.</p>
+        <article class="profile-card">
+          <h3>Extra</h3>
+          <p>Licensed drone flyer with a soft spot for visuals, media, and well-made experiences.</p>
         </article>
       </div>
     </section>
 
-    <section id="highlights" class="section">
-      <div class="section-heading reveal">
+    <section id="highlights" class="section reveal">
+      <div class="section-intro">
         <p class="eyebrow">Highlights</p>
-        <h2>Things that define me.</h2>
+        <h2>Things I care about.</h2>
       </div>
-
-      <div class="highlights-layout">
-        <article class="highlight-tall glass reveal">
-          <span class="number">01</span>
-          <h3>Knowledge-driven</h3>
-          <p>I enjoy learning across disciplines and understanding how things work beneath the surface.</p>
+      <div class="highlight-grid">
+        <article class="highlight-card wide">
+          <span class="pill">Knowledge</span>
+          <p>I enjoy understanding how things work — digitally, socially, and culturally.</p>
         </article>
-        <article class="highlight-wide glass reveal delay-1">
-          <span class="number">02</span>
-          <h3>Active and disciplined</h3>
-          <p>Sport keeps me grounded. I value consistency, health, and a lifestyle that feels sustainable.</p>
+        <article class="highlight-card">
+          <span class="pill">Sport</span>
+          <p>Movement, precision, progress.</p>
         </article>
-        <article class="highlight-box glass reveal delay-2">
-          <span class="number">03</span>
-          <h3>Creative orbit</h3>
-          <p>I’m inspired by art, design, and the charm of being close to creative people.</p>
+        <article class="highlight-card">
+          <span class="pill">Gaming</span>
+          <p>Interactive worlds, strategy, atmosphere.</p>
         </article>
-        <article class="highlight-box glass reveal delay-3">
-          <span class="number">04</span>
-          <h3>Meaningful fun</h3>
-          <p>Good experiences matter more to me than excess. Presence beats inebriation every time.</p>
+        <article class="highlight-card">
+          <span class="pill">Design</span>
+          <p>Minimal but expressive visuals.</p>
+        </article>
+        <article class="highlight-card">
+          <span class="pill">Lifestyle</span>
+          <p>Healthy, relaxed, present, intentional.</p>
         </article>
       </div>
     </section>
 
     <section id="gallery" class="section gallery-section">
-      <div class="section-heading reveal">
+      <div class="section-intro reveal">
         <p class="eyebrow">Carla's Gallery</p>
-        <h2>Her drawings, your curated corner.</h2>
-        <p class="section-text">
-          This section is designed so you can add images yourself from the page. It works in <strong>Owner Mode</strong> and saves on the browser you used.
+        <h2>Drawings, sketches, and visual work.</h2>
+        <p class="section-note">
+          This gallery is designed to connect to your private backend so only you can log in and upload new artwork.
         </p>
       </div>
 
-      <div class="gallery-toolbar glass reveal">
-        <div>
-          <h3>Owner controls</h3>
-          <p class="small-note">Best for quick updates on your own device.</p>
-        </div>
-        <button id="ownerToggle" class="button button-dark" type="button">Enable Owner Mode</button>
+      <div class="gallery-toolbar reveal">
+        <button class="button button-light" id="loginToggle">Owner login</button>
+        <button class="button button-light hidden" id="logoutButton">Log out</button>
+        <span id="authStatus" class="status-text">Public view</span>
       </div>
 
-      <div id="ownerPanel" class="owner-panel glass hidden reveal">
-        <div class="panel-grid">
+      <div class="owner-panel reveal hidden" id="ownerPanel">
+        <form id="loginForm" class="auth-card">
+          <h3>Owner access</h3>
+          <p>Log in with your private admin password.</p>
           <label>
-            <span>Upload drawing</span>
-            <input id="imageInput" type="file" accept="image/*" />
+            <span>Password</span>
+            <input type="password" id="passwordInput" placeholder="Enter admin password" required />
           </label>
+          <button class="button button-dark" type="submit">Log in</button>
+        </form>
 
+        <form id="uploadForm" class="auth-card hidden" enctype="multipart/form-data">
+          <h3>Upload new drawing</h3>
           <label>
             <span>Title</span>
-            <input id="titleInput" type="text" placeholder="e.g. Soft portrait study" />
+            <input type="text" id="titleInput" placeholder="Artwork title" required />
           </label>
-
-          <label class="full-width">
+          <label>
             <span>Description</span>
-            <textarea id="descInput" rows="3" placeholder="Optional caption or note"></textarea>
+            <textarea id="descriptionInput" rows="3" placeholder="A short note about the piece"></textarea>
           </label>
-        </div>
-        <div class="panel-actions">
-          <button id="addArtworkBtn" class="button button-dark" type="button">Add to gallery</button>
-          <button id="clearGalleryBtn" class="button button-light" type="button">Clear uploaded items</button>
-        </div>
-        <p class="small-note">
-          This owner tool stores uploads in your browser's local storage. On GitHub Pages, it does <strong>not</strong> sync across devices by itself.
-        </p>
+          <label>
+            <span>Image</span>
+            <input type="file" id="imageInput" accept="image/*" required />
+          </label>
+          <button class="button button-dark" type="submit">Upload artwork</button>
+          <p class="helper-text">Only logged-in owner sessions can upload or delete images.</p>
+        </form>
       </div>
 
-      <div id="galleryGrid" class="masonry-gallery reveal"></div>
+      <div class="gallery-grid reveal" id="galleryGrid"></div>
     </section>
 
-    <section id="contact" class="section contact-wrap">
-      <div class="section-heading reveal">
+    <section id="contact" class="section reveal">
+      <div class="section-intro">
         <p class="eyebrow">Contact</p>
-        <h2>Open, calm, and easy to reach.</h2>
+        <h2>Let’s keep it simple.</h2>
       </div>
-
-      <div class="contact-card glass reveal delay-1">
-        <p class="contact-line"><strong>Email</strong> <span>seansannino@gmail.com</span></p>
-        <p class="contact-line"><strong>GitHub</strong> <a href="https://github.com/iseanam" target="_blank" rel="noreferrer">github.com/iseanam</a></p>
-        <p class="contact-line"><strong>LinkedIn</strong> <a href="#" target="_blank" rel="noreferrer">Add your LinkedIn profile here</a></p>
+      <div class="contact-card">
+        <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+        <p>
+          <a href="#" target="_blank" rel="noreferrer">LinkedIn</a> ·
+          <a href="https://github.com/iseanam" target="_blank" rel="noreferrer">GitHub</a>
+        </p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2026 Sean Scott Sannino</p>
+    <p>© 2026 Sean Sannino</p>
   </footer>
 
   <script src="script.js"></script>
