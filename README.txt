@@ -1,1 +1,0 @@
-Replace your current frontend script.js with this file after you deploy the Cloudinary backend.
