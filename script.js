@@ -1,18 +1,14 @@
-const reveals = document.querySelectorAll('.reveal');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
+const obs = new IntersectionObserver(entries=>{
+ entries.forEach(e=>{
+  if(e.isIntersecting) e.target.classList.add('visible');
+ });
 });
 
-reveals.forEach(r => observer.observe(r));
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-window.addEventListener('scroll', () => {
-  const tiger = document.querySelector('.tiger-img');
-  if(tiger){
-    tiger.style.transform = `translateY(${window.scrollY * 0.1}px)`;
-  }
+window.addEventListener('scroll',()=>{
+ const tiger = document.querySelector('.tiger');
+ if(tiger){
+  tiger.style.transform = `translateY(${window.scrollY*0.1}px)`;
+ }
 });

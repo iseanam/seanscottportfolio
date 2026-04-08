@@ -1,7 +1,17 @@
 body {
   font-family: 'Manrope', sans-serif;
-  background: #fafafa;
   margin: 0;
+  color: #111;
+  background: #fafafa;
+}
+
+.bg-gradient {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,120,120,0.15), transparent),
+    radial-gradient(circle at 80% 30%, rgba(120,160,255,0.15), transparent);
+  z-index: -1;
 }
 
 .hero {
@@ -10,39 +20,56 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-}
-
-.hero-text {
   text-align: center;
 }
 
-.hero-visual {
+.tiger {
   position: absolute;
   right: 10%;
   top: 20%;
+  width: 400px;
   opacity: 0.1;
 }
 
-.tiger-img {
-  width: 400px;
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: #666;
+}
+
+.subtitle {
+  color: #555;
 }
 
 .section {
-  padding: 120px 20px;
   max-width: 900px;
   margin: auto;
+  padding: 120px 20px;
 }
 
-.gallery-grid {
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.gallery {
   column-width: 250px;
   column-gap: 20px;
 }
 
-.gallery-item {
+.item {
   margin-bottom: 20px;
 }
 
-.gallery-item img {
+.item img {
   width: 100%;
   border-radius: 16px;
 }
