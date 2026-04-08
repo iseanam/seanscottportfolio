@@ -1,4 +1,4 @@
-# Sean Portfolio Frontend
+# Sean Portfolio Frontend V5
 
 This is the updated minimalist + colorful portfolio frontend.
 
