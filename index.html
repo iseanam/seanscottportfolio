@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sean Sannino</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -16,10 +16,8 @@
 <header class="hero">
   <div class="hero-inner reveal">
     <p class="eyebrow">Maastricht University · Digital Society</p>
-    <h1>
-      Sean Sannino
-      <span class="hero-accent">calm, curious, intentional</span>
-    </h1>
+    <h1>Sean Sannino</h1>
+    <p class="subtitle">Calm, curious, and digitally minded.</p>
   </div>
 
   <img src="tiger.png" class="tiger">
@@ -27,7 +25,7 @@
 
 <section class="section reveal">
   <h2>About</h2>
-  <p class="body-text">
+  <p>
     I’m a Digital Society student exploring how technology shapes people, culture, and everyday life.
     I value clarity, balance, and thoughtful experiences.
   </p>
@@ -45,12 +43,29 @@
 
 <section class="section reveal">
   <h2>Carla’s Gallery</h2>
-  <div class="gallery" id="gallery"></div>
+
+  <div class="owner-bar">
+    <button id="loginBtn" class="button">Owner Mode</button>
+    <button id="logoutBtn" class="button hidden">Logout</button>
+    <span id="status">Public</span>
+  </div>
+
+  <div id="ownerPanel" class="owner-panel hidden">
+    <input type="password" id="password" placeholder="Enter password">
+    <button id="loginSubmit" class="button">Login</button>
+
+    <div id="uploadArea" class="hidden">
+      <input type="file" id="fileInput">
+      <button id="uploadBtn" class="button">Upload</button>
+    </div>
+  </div>
+
+  <div id="gallery" class="gallery"></div>
 </section>
 
 <section class="section reveal">
   <h2>Contact</h2>
-  <p class="body-text">your.email@example.com</p>
+  <p>your.email@example.com</p>
 </section>
 
 <script src="script.js"></script>
