@@ -16,6 +16,30 @@ if (navToggle && siteNav) {
   siteNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => siteNav.classList.remove('open')));
 }
 
+const siteHeader = document.querySelector('.site-header');
+const tigerArtwork = document.querySelector('.tiger-artwork');
+let ticking = false;
+
+function updateScrollEffects() {
+  const scrolled = window.scrollY > 10;
+  if (siteHeader) siteHeader.classList.toggle('is-scrolled', scrolled);
+
+  if (tigerArtwork) {
+    const y = Math.min(window.scrollY * 0.04, 26);
+    tigerArtwork.style.transform = `translate3d(0, ${y}px, 0) scale(1.01)`;
+  }
+  ticking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(updateScrollEffects);
+    ticking = true;
+  }
+}, { passive: true });
+
+updateScrollEffects();
+
 const API_BASE = 'https://backendgallerycarla.onrender.com';
 const TOKEN_KEY = 'sean-gallery-admin-token';
 

@@ -1,11 +1,7 @@
-# Sean Portfolio Frontend
+# Sean Portfolio Frontend — Tiger polish version
 
-This is the updated minimalist + colorful portfolio frontend.
-
-## What changed
-- cleaner Pinterest-like spacing
-- more minimal cards
-- more colorful soft ambient shapes
-- abstract swirly line art in the background
-- fixed layout so cards do not overlap
-- connected gallery section for a real backend
+This version keeps the existing owner mode and backend-connected gallery, while adding:
+- smoother Apple-like reveal and hover transitions
+- clearer section intros and spacing
+- a dedicated tiger symbol section
+- use of the provided tiger artwork as part of Sean's story
