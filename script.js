@@ -16,7 +16,7 @@ if (navToggle && siteNav) {
   siteNav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => siteNav.classList.remove('open')));
 }
 
-const API_BASE = 'https://backendgallerycarla.onrender.com';
+const API_BASE = 'http://localhost:10000';
 const TOKEN_KEY = 'sean-gallery-admin-token';
 
 const galleryGrid = document.getElementById('galleryGrid');
