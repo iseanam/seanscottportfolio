@@ -23,21 +23,18 @@ let ticking = false;
 function updateScrollEffects() {
   const scrolled = window.scrollY > 10;
   if (siteHeader) siteHeader.classList.toggle('is-scrolled', scrolled);
-
   if (tigerArtwork) {
     const y = Math.min(window.scrollY * 0.04, 26);
     tigerArtwork.style.transform = `translate3d(0, ${y}px, 0) scale(1.01)`;
   }
   ticking = false;
 }
-
 window.addEventListener('scroll', () => {
   if (!ticking) {
     window.requestAnimationFrame(updateScrollEffects);
     ticking = true;
   }
 }, { passive: true });
-
 updateScrollEffects();
 
 const API_BASE = 'https://backendgallerycarla.onrender.com';
@@ -94,7 +91,7 @@ function renderGallery(items) {
   galleryGrid.innerHTML = items.map((item) => `
     <article class="gallery-item reveal visible">
       ${isAuthed() ? `<button class="remove-btn" data-id="${item.id}" type="button">Remove</button>` : ''}
-      <img src="${API_BASE}${item.imageUrl}" alt="${escapeHTML(item.title || 'Artwork')}" loading="lazy" />
+      <img src="${item.imageUrl}" alt="${escapeHTML(item.title || 'Artwork')}" loading="lazy" />
       <div class="gallery-copy">
         <h3>${escapeHTML(item.title || 'Untitled')}</h3>
         <p>${escapeHTML(item.description || '')}</p>
@@ -105,7 +102,7 @@ function renderGallery(items) {
   if (isAuthed()) {
     document.querySelectorAll('.remove-btn').forEach((btn) => {
       btn.addEventListener('click', async () => {
-        const res = await fetch(`${API_BASE}/api/artworks/${btn.dataset.id}`, {
+        const res = await fetch(`${API_BASE}/api/artworks/${encodeURIComponent(btn.dataset.id)}`, {
           method: 'DELETE',
           headers: { Authorization: `Bearer ${token()}` }
         });
@@ -141,7 +138,6 @@ uploadForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const file = imageInput.files?.[0];
   if (!file) return alert('Please choose an image.');
-
   const formData = new FormData();
   formData.append('title', titleInput.value.trim());
   formData.append('description', descriptionInput.value.trim());
